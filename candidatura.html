@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Candidatura - Inatel Opportunities Hub</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('candidatura_form');
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    alert('Candidatura enviada com sucesso! Você será redirecionado para a página inicial.');
+                    form.reset();
+                    window.location.href = 'index.html'; 
+                });
+            }
+            
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.className = savedTheme;
+            }
+        });
+        function goBack() {
+            window.location.href = 'index.html'; 
+        }
+    </script>
+</head>
+<body>
+    <main>
+        <div id="form_container" class="content_box extra-screen" style="display: block;">
+            <div class="form_header_container">
+                <span class="material-symbols-outlined icoG back_arrow" onclick="goBack()">arrow_back</span>
+                <div id="form_vaga_titulo" class="font">Formulário de Candidatura</div>
+            </div>
+            
+            <form id="candidatura_form">
+                <div class="form_group">
+                    <label for="nome_completo" class="font">Nome Completo</label>
+                    <input type="text" id="nome_completo" name="nome_completo" required>
+                </div>
+                
+                <div class="form_group">
+                    <label for="data_nascimento" class="font">Data de Nascimento</label>
+                    <input type="date" id="data_nascimento" name="data_nascimento" required>
+                </div>
+                
+                <div class="form_group">
+                    <label for="curriculo" class="font">Anexar Currículo (PDF, DOCX)</label>
+                    <input type="file" id="curriculo" name="curriculo" accept=".pdf,.docx" required>
+                </div>
+                
+                <button type="submit" class="submit_button font">Candidatar-se</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
